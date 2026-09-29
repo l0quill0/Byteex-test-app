@@ -22,3 +22,17 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Gemini / Agent Rules
+GEMINI.md
+AGENTS.md
+.agents/
+
+# Scratch & Image Dumps
+sanity-images-dump/
+seedSanity.ts
+*-screenshot*.png
+*-exact.png
+*-authentic.png
+*-final.png
+
