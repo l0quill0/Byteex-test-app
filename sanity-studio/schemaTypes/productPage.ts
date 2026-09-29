@@ -19,9 +19,19 @@ export const productPage = defineType({
           name: 'backgroundImage',
           title: 'Background Image',
           type: 'image',
-          options: {
-            hotspot: true,
-          },
+          options: { hotspot: true },
+        }),
+        defineField({
+          name: 'productImages',
+          title: 'Product Images',
+          type: 'array',
+          of: [{type: 'image', options: { hotspot: true }}],
+        }),
+        defineField({
+          name: 'asSeenInLogos',
+          title: '"As Seen In" Logos',
+          type: 'array',
+          of: [{type: 'image'}],
         }),
       ],
     }),
@@ -44,6 +54,11 @@ export const productPage = defineType({
           name: 'waterSaved',
           title: 'Water Saved (days)',
           type: 'string',
+        }),
+        defineField({
+          name: 'backgroundImage',
+          title: 'Background Image / Graphic',
+          type: 'image',
         }),
       ],
     }),
@@ -93,14 +108,36 @@ export const productPage = defineType({
     }),
     defineField({
       name: 'reviews',
-      title: 'Reviews Summary',
-      type: 'object',
-      fields: [
-        defineField({
-          name: 'text',
-          title: 'Review Text',
-          type: 'string',
-        }),
+      title: 'Customer Reviews',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'authorName',
+              title: 'Author Name',
+              type: 'string',
+            }),
+            defineField({
+              name: 'avatar',
+              title: 'Avatar Image',
+              type: 'image',
+              options: { hotspot: true },
+            }),
+            defineField({
+              name: 'reviewText',
+              title: 'Review Text',
+              type: 'text',
+            }),
+            defineField({
+              name: 'rating',
+              title: 'Star Rating',
+              type: 'number',
+              validation: (Rule) => Rule.min(1).max(5),
+            }),
+          ],
+        },
       ],
     }),
   ],
