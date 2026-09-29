@@ -2,6 +2,7 @@ import { AnnouncementBar } from "./components/AnnouncementBar";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { LoungewearSection } from "./components/LoungewearSection";
+import { BestSelfSection } from "./components/BestSelfSection";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <main>
         <Hero />
         <LoungewearSection />
+        <BestSelfSection />
       </main>
     </div>
   );

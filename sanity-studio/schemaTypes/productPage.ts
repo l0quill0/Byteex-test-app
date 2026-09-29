@@ -140,6 +140,49 @@ export const productPage = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'bestSelf',
+      title: 'Be Your Best Self Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'headline',
+          title: 'Headline',
+          type: 'string',
+          initialValue: 'Be your best self.',
+        }),
+        defineField({
+          name: 'paragraphs',
+          title: 'Story Paragraphs',
+          type: 'array',
+          of: [{type: 'text'}],
+        }),
+        defineField({
+          name: 'mainImage',
+          title: 'Main Founder Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+        defineField({
+          name: 'secondaryImageTop',
+          title: 'Top Left Accent Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+        defineField({
+          name: 'secondaryImageBottom',
+          title: 'Bottom Right Accent Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+        defineField({
+          name: 'buttonText',
+          title: 'Button Text',
+          type: 'string',
+          initialValue: 'Customize Your Outfit',
+        }),
+      ],
+    }),
   ],
   preview: {
     prepare() {
