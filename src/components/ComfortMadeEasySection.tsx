@@ -35,7 +35,7 @@ export const ComfortMadeEasySection = () => {
   };
 
   return (
-    <section className="w-full bg-white py-14 lg:py-24 overflow-hidden">
+    <section className="w-full bg-white pt-12 lg:pt-16 pb-8 lg:pb-10 overflow-hidden">
       <div className="max-w-[1464px] mx-auto px-4 md:px-8 lg:px-[102px] flex flex-col items-center">
         
         {/* Section Headline (Figma #1:1460 Desktop / #2:1002 Mobile) */}

@@ -225,6 +225,82 @@ export const productPage = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'reviewsSection',
+      title: 'Reviews Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'headline',
+          title: 'Headline',
+          type: 'string',
+          initialValue: 'What are our fans saying?',
+        }),
+        defineField({
+          name: 'subtitle',
+          title: 'Subtitle',
+          type: 'text',
+          initialValue:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat. Fusce non nibh luctus.',
+        }),
+        defineField({
+          name: 'fansGroupImage',
+          title: 'Fans Group Image Strip',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+        defineField({
+          name: 'reviews',
+          title: 'Reviews',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'author',
+                  title: 'Author Name',
+                  type: 'string',
+                  initialValue: 'Jane, S.',
+                }),
+                defineField({
+                  name: 'quote',
+                  title: 'Quote',
+                  type: 'text',
+                  initialValue:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales justo. Aenean eget aliquet mi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sed sollicitudin dolor, non sodales.',
+                }),
+                defineField({name: 'rating', title: 'Rating', type: 'number', initialValue: 5}),
+                defineField({name: 'avatar', title: 'Avatar', type: 'image'}),
+              ],
+            }),
+          ],
+        }),
+        defineField({
+          name: 'ugcImages',
+          title: 'UGC Photo Gallery (Alternative)',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'image',
+              options: {hotspot: true},
+            }),
+          ],
+        }),
+        defineField({
+          name: 'buttonText',
+          title: 'Button Text',
+          type: 'string',
+          initialValue: 'Customize Your Outfit',
+        }),
+        defineField({
+          name: 'reviewText',
+          title: 'Review Text',
+          type: 'string',
+          initialValue: 'Over 500+ 5 Star Reviews Online',
+        }),
+      ],
+    }),
   ],
   preview: {
     prepare() {
