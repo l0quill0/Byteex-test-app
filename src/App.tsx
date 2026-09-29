@@ -5,6 +5,7 @@ import { LoungewearSection } from "./components/LoungewearSection";
 import { BestSelfSection } from "./components/BestSelfSection";
 import { ComfortMadeEasySection } from "./components/ComfortMadeEasySection";
 import { ReviewsSection } from "./components/ReviewsSection";
+import { FAQSection } from "./components/FAQSection";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <BestSelfSection />
         <ComfortMadeEasySection />
         <ReviewsSection />
+        <FAQSection />
       </main>
     </div>
   );

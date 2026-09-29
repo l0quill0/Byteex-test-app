@@ -86,7 +86,7 @@ export const productPage = defineType({
     }),
     defineField({
       name: 'faqs',
-      title: 'Frequently Asked Questions',
+      title: 'Frequently Asked Questions (Legacy Array)',
       type: 'array',
       of: [
         {
@@ -104,6 +104,71 @@ export const productPage = defineType({
             }),
           ],
         },
+      ],
+    }),
+    defineField({
+      name: 'faqSection',
+      title: 'FAQ Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'headline',
+          title: 'Headline',
+          type: 'string',
+          initialValue: 'Frequently asked questions.',
+        }),
+        defineField({
+          name: 'faqs',
+          title: 'Questions & Answers',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'question',
+                  title: 'Question',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'answer',
+                  title: 'Answer',
+                  type: 'text',
+                }),
+              ],
+            }),
+          ],
+        }),
+        defineField({
+          name: 'mainImage',
+          title: 'Collage Main Center Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+        defineField({
+          name: 'secondaryImageTop',
+          title: 'Collage Top Right Accent Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+        defineField({
+          name: 'secondaryImageBottom',
+          title: 'Collage Bottom Left Accent Image',
+          type: 'image',
+          options: {hotspot: true},
+        }),
+        defineField({
+          name: 'buttonText',
+          title: 'CTA Button Text (Mobile)',
+          type: 'string',
+          initialValue: 'Customize Your Outfit',
+        }),
+        defineField({
+          name: 'reviewText',
+          title: 'Review Rating Text (Mobile)',
+          type: 'string',
+          initialValue: 'One of 500+ 5 Star Reviews Online',
+        }),
       ],
     }),
     defineField({
