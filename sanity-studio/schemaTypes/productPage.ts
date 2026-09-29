@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import {defineField, defineType, defineArrayMember} from 'sanity'
 
 export const productPage = defineType({
   name: 'productPage',
@@ -180,6 +180,48 @@ export const productPage = defineType({
           title: 'Button Text',
           type: 'string',
           initialValue: 'Customize Your Outfit',
+        }),
+      ],
+    }),
+    defineField({
+      name: 'comfortMadeEasy',
+      title: 'Comfort Made Easy Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'headline',
+          title: 'Headline',
+          type: 'string',
+          initialValue: 'Comfort made easy',
+        }),
+        defineField({
+          name: 'steps',
+          title: 'Steps',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'object',
+              fields: [
+                defineField({name: 'stepNumber', title: 'Step Number', type: 'number'}),
+                defineField({name: 'title', title: 'Title', type: 'string'}),
+                defineField({name: 'description', title: 'Description', type: 'text'}),
+                defineField({name: 'icon', title: 'Icon', type: 'image'}),
+                defineField({name: 'isHighlighted', title: 'Is Highlighted (Warm Beige)', type: 'boolean', initialValue: false}),
+              ],
+            }),
+          ],
+        }),
+        defineField({
+          name: 'buttonText',
+          title: 'Button Text',
+          type: 'string',
+          initialValue: 'Customize Your Outfit',
+        }),
+        defineField({
+          name: 'reviewText',
+          title: 'Review Text',
+          type: 'string',
+          initialValue: 'Over 500+ 5 Star Reviews Online',
         }),
       ],
     }),
