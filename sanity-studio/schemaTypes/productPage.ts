@@ -172,6 +172,46 @@ export const productPage = defineType({
       ],
     }),
     defineField({
+      name: 'greenImpactSection',
+      title: 'Our Total Green Impact Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'title',
+          title: 'Headline Title',
+          type: 'string',
+          initialValue: 'Our total green impact',
+        }),
+        defineField({
+          name: 'stats',
+          title: 'Sustainability Metrics',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'object',
+              fields: [
+                defineField({
+                  name: 'icon',
+                  title: 'Icon Graphic',
+                  type: 'image',
+                }),
+                defineField({
+                  name: 'value',
+                  title: 'Metric Value',
+                  type: 'string',
+                }),
+                defineField({
+                  name: 'label',
+                  title: 'Metric Label',
+                  type: 'string',
+                }),
+              ],
+            }),
+          ],
+        }),
+      ],
+    }),
+    defineField({
       name: 'reviews',
       title: 'Customer Reviews',
       type: 'array',

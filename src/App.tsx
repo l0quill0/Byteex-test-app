@@ -6,6 +6,7 @@ import { BestSelfSection } from "./components/BestSelfSection";
 import { ComfortMadeEasySection } from "./components/ComfortMadeEasySection";
 import { ReviewsSection } from "./components/ReviewsSection";
 import { FAQSection } from "./components/FAQSection";
+import { GreenImpactSection } from "./components/GreenImpactSection";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <ComfortMadeEasySection />
         <ReviewsSection />
         <FAQSection />
+        <GreenImpactSection />
       </main>
     </div>
   );
