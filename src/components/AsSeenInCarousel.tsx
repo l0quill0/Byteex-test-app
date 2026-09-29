@@ -9,12 +9,13 @@ const partners = [
 ];
 
 export const AsSeenInCarousel = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(1);
   const touchStartX = useRef(0);
 
   const slides = [
+    [partners[3], partners[4], partners[0]],
     [partners[0], partners[1], partners[2]],
-    [partners[3], partners[4]],
+    [partners[2], partners[3], partners[4]],
   ];
 
   useEffect(() => {
@@ -56,30 +57,31 @@ export const AsSeenInCarousel = () => {
               transform: `translateX(-${activeSlide * (100 / slides.length)}%)` 
             }}
           >
-          {slides.map((slide, slideIdx) => (
-            <div 
-              key={slideIdx} 
-              style={{ width: `${100 / slides.length}%` }}
-              className="flex-shrink-0 flex items-center justify-around gap-2 px-2"
-            >
-              {slide.map((p, idx) => (
-                <div key={idx} className="flex-1 flex justify-center items-center">
-                  <img src={p.src} alt={p.name} className={`${p.height} w-auto object-contain`} />
-                </div>
-              ))}
-            </div>
-          ))}
+            {slides.map((slide, slideIdx) => (
+              <div 
+                key={slideIdx} 
+                style={{ width: `${100 / slides.length}%` }}
+                className="flex-shrink-0 flex items-center justify-around gap-2 px-2"
+              >
+                {slide.map((p, idx) => (
+                  <div key={idx} className="flex-1 flex justify-center items-center">
+                    <img src={p.src} alt={p.name} className={`${p.height} w-auto object-contain`} />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="flex items-center gap-2 mt-5">
+        {/* 3 Pagination dots matching Figma #1:1647, #1:1670, #1:1671 */}
+        <div className="flex items-center gap-[7px] mt-5">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveSlide(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`w-2 h-2 rounded-full transition-all ${
-                activeSlide === idx ? 'bg-[#01005B] w-4' : 'bg-[#C4C4C4]'
+              className={`w-2 h-2 rounded-full transition-colors duration-200 ${
+                activeSlide === idx ? 'bg-[#01005B]' : 'bg-[#C4C4C4]'
               }`}
             />
           ))}
