@@ -1,8 +1,8 @@
-import { urlFor } from '../lib/sanity';
+import { urlFor } from '../../lib/sanity';
 import {
   useFinalCtaData,
   fallbackCardImages,
-} from '../hooks/useFinalCtaData';
+} from '../../hooks';
 
 export const FinalCTASection = () => {
   const { data } = useFinalCtaData();

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useFAQData, fallbackFAQs } from '../hooks/useFAQData';
+import { useFAQData, fallbackFAQs } from '../../hooks';
 import { FAQItem } from './FAQItem';
 import { FAQCollage } from './FAQCollage';
-import { Button } from './base/Button';
+import { Button } from '../base';
 
 export const FAQSection = () => {
   const { data } = useFAQData();

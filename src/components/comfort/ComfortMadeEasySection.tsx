@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
-import { useComfortMadeEasyData, fallbackSteps } from '../hooks/useComfortMadeEasyData';
+import { useComfortMadeEasyData, fallbackSteps } from '../../hooks';
 import { ComfortStepCard } from './ComfortStepCard';
-import { Button } from './base/Button';
+import { Button } from '../base';
 
 export const ComfortMadeEasySection = () => {
   const { data } = useComfortMadeEasyData();

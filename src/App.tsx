@@ -1,13 +1,15 @@
-import { AnnouncementBar } from "./components/AnnouncementBar";
-import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { LoungewearSection } from "./components/LoungewearSection";
-import { BestSelfSection } from "./components/BestSelfSection";
-import { ComfortMadeEasySection } from "./components/ComfortMadeEasySection";
-import { ReviewsSection } from "./components/ReviewsSection";
-import { FAQSection } from "./components/FAQSection";
-import { GreenImpactSection } from "./components/GreenImpactSection";
-import { FinalCTASection } from "./components/FinalCTASection";
+import {
+  AnnouncementBar,
+  Navbar,
+  Hero,
+  LoungewearSection,
+  BestSelfSection,
+  ComfortMadeEasySection,
+  ReviewsSection,
+  FAQSection,
+  GreenImpactSection,
+  FinalCTASection,
+} from './components';
 
 function App() {
   return (

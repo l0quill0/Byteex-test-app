@@ -1,9 +1,9 @@
-import { urlFor } from '../lib/sanity';
+import { urlFor } from '../../lib/sanity';
 import {
   useGreenImpactData,
   fallbackGreenMetrics,
   type GreenImpactMetric,
-} from '../hooks/useGreenImpactData';
+} from '../../hooks';
 
 export const GreenImpactSection = () => {
   const { data } = useGreenImpactData();

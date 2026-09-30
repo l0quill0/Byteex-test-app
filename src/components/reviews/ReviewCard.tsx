@@ -1,5 +1,5 @@
-import { urlFor } from '../lib/sanity';
-import type { ReviewItem } from '../hooks/useReviewsData';
+import { urlFor } from '../../lib/sanity';
+import type { ReviewItem } from '../../hooks';
 
 interface ReviewCardProps {
   review: ReviewItem;

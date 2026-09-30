@@ -1,7 +1,7 @@
-import { useReviewsData, fallbackReviews } from '../hooks/useReviewsData';
-import { UGCPhotoGrid } from './UGCPhotoGrid';
+import { useReviewsData, fallbackReviews } from '../../hooks';
+import { UGCPhotoGrid } from '../best-self';
 import { ReviewsCarousel } from './ReviewsCarousel';
-import { Button } from './base/Button';
+import { Button } from '../base';
 
 export const ReviewsSection = () => {
   const { data } = useReviewsData();

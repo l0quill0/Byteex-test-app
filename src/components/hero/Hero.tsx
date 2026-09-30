@@ -1,9 +1,8 @@
-import { useHeroData } from '../hooks/useHeroData';
-import { Wrapper } from './base/Wrapper';
-import { urlFor } from '../lib/sanity';
+import { useHeroData } from '../../hooks';
+import { Wrapper, Button } from '../base';
+import { urlFor } from '../../lib/sanity';
 import { HeroCardFan } from './HeroCardFan';
 import { HeroReviewCard } from './HeroReviewCard';
-import { Button } from './base/Button';
 import { AsSeenInCarousel } from './AsSeenInCarousel';
 
 export const Hero = () => {

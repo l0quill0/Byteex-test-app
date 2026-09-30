@@ -1,26 +1,22 @@
 import { useState, useRef } from 'react';
+import { type LoungewearSlide, fallbackSlides } from '../../hooks';
+import { urlFor } from '../../lib/sanity';
 
-const slides = [
-  { id: 1, name: 'Gray Suite', src: '/figma-assets/product-slide-2.png', alt: 'Gray Suite showcase' },
-  { id: 2, name: 'White Robe', src: '/figma-assets/product-slide-1.png', alt: 'White Robe showcase' },
-  { id: 3, name: 'Gray Suite', src: '/figma-assets/product-slide-2.png', alt: 'Gray Suite showcase' },
-  { id: 4, name: 'Gray Suite', src: '/figma-assets/product-slide-2.png', alt: 'Gray Suite showcase' },
-  { id: 5, name: 'Gray Suite', src: '/figma-assets/product-slide-2.png', alt: 'Gray Suite showcase' },
-  { id: 6, name: 'Gray Suite', src: '/figma-assets/product-slide-2.png', alt: 'Gray Suite showcase' },
-  { id: 7, name: 'Gray Suite', src: '/figma-assets/product-slide-2.png', alt: 'Gray Suite showcase' },
-  { id: 8, name: 'Gray Suite', src: '/figma-assets/product-slide-2.png', alt: 'Gray Suite showcase' },
-];
+interface ProductCarouselProps {
+  slides?: LoungewearSlide[];
+}
 
-export const ProductCarousel = () => {
+export const ProductCarousel = ({ slides }: ProductCarouselProps) => {
+  const activeSlides = slides && slides.length > 0 ? slides : fallbackSlides;
   const [activeSlideIndex, setActiveSlideIndex] = useState(1);
   const touchStartX = useRef(0);
 
   const prevSlide = () => {
-    setActiveSlideIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    setActiveSlideIndex((prev) => (prev === 0 ? activeSlides.length - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setActiveSlideIndex((prev) => (prev + 1) % slides.length);
+    setActiveSlideIndex((prev) => (prev + 1) % activeSlides.length);
   };
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -35,6 +31,19 @@ export const ProductCarousel = () => {
       nextSlide();
     }
   };
+
+  const getSlideSrc = (slide: LoungewearSlide) => {
+    if (slide.image) {
+      try {
+        return urlFor(slide.image).url();
+      } catch {
+        return slide.src || '';
+      }
+    }
+    return slide.src || '';
+  };
+
+  const currentSlide = activeSlides[activeSlideIndex] || activeSlides[0];
 
   return (
     <div className="w-full flex flex-col items-center select-none">
@@ -58,18 +67,18 @@ export const ProductCarousel = () => {
           onTouchEnd={handleTouchEnd}
         >
           <img
-            src={slides[activeSlideIndex].src}
-            alt={slides[activeSlideIndex].alt}
+            src={getSlideSrc(currentSlide)}
+            alt={currentSlide.alt}
             className="w-full h-full object-cover rounded-none transition-opacity duration-300"
           />
 
           {/* 8 Previews Row Overlaid on Bottom of Image */}
           <div className="absolute bottom-2.5 sm:bottom-3 lg:bottom-3.5 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-1.5 lg:gap-2">
-            {slides.map((slide, idx) => {
+            {activeSlides.map((slide, idx) => {
               const isActive = activeSlideIndex === idx;
               return (
                 <button
-                  key={slide.id}
+                  key={slide.id || idx}
                   onClick={() => setActiveSlideIndex(idx)}
                   aria-label={`View slide ${idx + 1}`}
                   className={`w-[22px] h-[23px] lg:w-[31px] lg:h-[32px] rounded-none overflow-hidden transition-all cursor-pointer ${
@@ -79,7 +88,7 @@ export const ProductCarousel = () => {
                   }`}
                 >
                   <img
-                    src={slide.src}
+                    src={getSlideSrc(slide)}
                     alt={`Thumbnail ${idx + 1}`}
                     className="w-full h-full object-cover rounded-none"
                   />
@@ -103,7 +112,7 @@ export const ProductCarousel = () => {
 
       {/* Dynamic Product Caption */}
       <p data-testid="product-caption" className="mt-2.5 lg:mt-3 text-center font-suisse font-['Suisse_Intl',sans-serif] text-[13px] leading-[22px] tracking-[0.03em] text-[#484848]">
-        {slides[activeSlideIndex].name}
+        {currentSlide.name}
       </p>
     </div>
   );

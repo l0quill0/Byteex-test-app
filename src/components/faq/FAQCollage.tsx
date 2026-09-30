@@ -1,4 +1,4 @@
-import { urlFor } from '../lib/sanity';
+import { urlFor } from '../../lib/sanity';
 
 interface FAQCollageProps {
   mainImage?: any;

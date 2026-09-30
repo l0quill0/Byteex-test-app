@@ -1,4 +1,4 @@
-import { Wrapper } from './base/Wrapper';
+import { Wrapper } from '../base';
 
 export const Navbar = () => {
   return (

@@ -1,6 +1,6 @@
-import { useBestSelfData, fallbackParagraphs } from '../hooks/useBestSelfData';
+import { useBestSelfData, fallbackParagraphs } from '../../hooks';
 import { BestSelfCollage } from './BestSelfCollage';
-import { Button } from './base/Button';
+import { Button } from '../base';
 
 export const BestSelfSection = () => {
   const { data } = useBestSelfData();

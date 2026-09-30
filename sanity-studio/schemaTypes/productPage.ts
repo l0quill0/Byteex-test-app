@@ -6,6 +6,26 @@ export const productPage = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'announcementBar',
+      title: 'Announcement Bar',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'desktopText',
+          title: 'Desktop Announcement Text',
+          type: 'string',
+          initialValue:
+            'CONSCIOUSLY MADE BUTTER SOFT STAPLES FOR EVERY DAY (OR NIGHT)   |   FREE SHIPPING on orders > $200   |   easy 45 day return window.',
+        }),
+        defineField({
+          name: 'mobileText',
+          title: 'Mobile Announcement Text',
+          type: 'string',
+          initialValue: 'FREE SHIPPING on orders > $200',
+        }),
+      ],
+    }),
+    defineField({
       name: 'hero',
       title: 'Hero Section',
       type: 'object',
@@ -32,6 +52,61 @@ export const productPage = defineType({
           title: '"As Seen In" Logos',
           type: 'array',
           of: [{type: 'image'}],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'loungewearSection',
+      title: 'Loungewear Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'headline',
+          title: 'Headline Title',
+          type: 'string',
+          initialValue: 'Loungewear you can be proud of.',
+        }),
+        defineField({
+          name: 'buttonText',
+          title: 'Mobile CTA Button Text',
+          type: 'string',
+          initialValue: 'Customize Your Outfit',
+        }),
+        defineField({
+          name: 'reviewText',
+          title: 'Mobile Review Text',
+          type: 'string',
+          initialValue: 'Over 500+ 5 Star Reviews Online',
+        }),
+        defineField({
+          name: 'pillars',
+          title: 'Feature Pillars',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'object',
+              fields: [
+                defineField({name: 'title', title: 'Pillar Title', type: 'string'}),
+                defineField({name: 'description', title: 'Pillar Description', type: 'text'}),
+                defineField({name: 'icon', title: 'Icon Graphic', type: 'image'}),
+              ],
+            }),
+          ],
+        }),
+        defineField({
+          name: 'slides',
+          title: 'Product Carousel Slides',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'object',
+              fields: [
+                defineField({name: 'name', title: 'Product Name', type: 'string'}),
+                defineField({name: 'image', title: 'Product Image', type: 'image', options: {hotspot: true}}),
+                defineField({name: 'alt', title: 'Alt Text', type: 'string'}),
+              ],
+            }),
+          ],
         }),
       ],
     }),

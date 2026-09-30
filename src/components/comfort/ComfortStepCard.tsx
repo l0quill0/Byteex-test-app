@@ -1,5 +1,5 @@
-import { urlFor } from '../lib/sanity';
-import type { ComfortStep } from '../hooks/useComfortMadeEasyData';
+import { urlFor } from '../../lib/sanity';
+import type { ComfortStep } from '../../hooks';
 
 interface ComfortStepCardProps {
   step: ComfortStep;

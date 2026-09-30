@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import { ReviewCard } from './ReviewCard';
-import type { ReviewItem } from '../hooks/useReviewsData';
+import type { ReviewItem } from '../../hooks';
 
 interface ReviewsCarouselProps {
   reviews: ReviewItem[];
