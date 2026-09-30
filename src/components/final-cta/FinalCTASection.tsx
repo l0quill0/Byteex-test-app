@@ -1,11 +1,16 @@
 import { urlFor } from '../../lib/sanity';
+import { FinalCtaSkeleton } from './FinalCtaSkeleton';
 import {
   useFinalCtaData,
   fallbackCardImages,
 } from '../../hooks';
 
 export const FinalCTASection = () => {
-  const { data } = useFinalCtaData();
+  const { data, isLoading } = useFinalCtaData();
+
+  if (isLoading) {
+    return <FinalCtaSkeleton />;
+  }
 
   const title = data?.title || 'Find something you love.';
   const desktopSubtitle =

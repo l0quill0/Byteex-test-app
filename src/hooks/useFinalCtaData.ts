@@ -56,10 +56,15 @@ export const useFinalCtaData = () => {
   return useQuery<FinalCtaData>({
     queryKey: ['finalCtaSection'],
     queryFn: async () => {
-      const data = await client.fetch(FINAL_CTA_QUERY);
-      return data || fallbackFinalCtaData;
+      try {
+        const data = await client.fetch(FINAL_CTA_QUERY);
+        return data || fallbackFinalCtaData;
+      } catch (err) {
+        console.warn('Failed to fetch final CTA data from Sanity, using fallback:', err);
+        return fallbackFinalCtaData;
+      }
     },
-    initialData: fallbackFinalCtaData,
     staleTime: 1000 * 60 * 5,
   });
 };
+

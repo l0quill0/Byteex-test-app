@@ -1,12 +1,17 @@
 import { useState, useRef } from 'react';
 import { useComfortMadeEasyData, fallbackSteps } from '../../hooks';
 import { ComfortStepCard } from './ComfortStepCard';
+import { ComfortSkeleton } from './ComfortSkeleton';
 import { Button } from '../base';
 
 export const ComfortMadeEasySection = () => {
-  const { data } = useComfortMadeEasyData();
+  const { data, isLoading } = useComfortMadeEasyData();
   const [activeStep, setActiveStep] = useState(0);
   const touchStartX = useRef(0);
+
+  if (isLoading) {
+    return <ComfortSkeleton />;
+  }
 
   const headline = data?.headline || 'Comfort made easy';
   const steps = data?.steps?.length ? data.steps : fallbackSteps;

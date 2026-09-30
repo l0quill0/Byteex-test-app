@@ -1,4 +1,5 @@
 import { urlFor } from '../../lib/sanity';
+import { GreenImpactSkeleton } from './GreenImpactSkeleton';
 import {
   useGreenImpactData,
   fallbackGreenMetrics,
@@ -6,7 +7,11 @@ import {
 } from '../../hooks';
 
 export const GreenImpactSection = () => {
-  const { data } = useGreenImpactData();
+  const { data, isLoading } = useGreenImpactData();
+
+  if (isLoading) {
+    return <GreenImpactSkeleton />;
+  }
 
   const title = data?.title || 'Our total green impact';
   const metrics: GreenImpactMetric[] =

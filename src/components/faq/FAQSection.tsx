@@ -2,18 +2,22 @@ import { useState } from 'react';
 import { useFAQData, fallbackFAQs } from '../../hooks';
 import { FAQItem } from './FAQItem';
 import { FAQCollage } from './FAQCollage';
+import { FAQSkeleton } from './FAQSkeleton';
 import { Button } from '../base';
 
 export const FAQSection = () => {
-  const { data } = useFAQData();
+  const { data, isLoading } = useFAQData();
+  // Item 1 (index 0) is open by default per Figma spec (#1:1280 / #1:1791)
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  if (isLoading) {
+    return <FAQSkeleton />;
+  }
 
   const headline = data?.headline || 'Frequently asked questions.';
   const faqs = data?.faqs?.length ? data.faqs : fallbackFAQs;
   const buttonText = data?.buttonText || 'Customize Your Outfit';
   const reviewText = data?.reviewText || 'One of 500+ 5 Star Reviews Online';
-
-  // Item 1 (index 0) is open by default per Figma spec (#1:1280 / #1:1791)
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const handleToggle = (index: number) => {
     setOpenIndex((prev) => (prev === index ? null : index));
@@ -41,6 +45,7 @@ export const FAQSection = () => {
               {faqs.map((faq, index) => (
                 <FAQItem
                   key={index}
+                  id={String(index)}
                   question={faq.question}
                   answer={faq.answer}
                   isOpen={openIndex === index}

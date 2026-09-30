@@ -1,17 +1,23 @@
 import { Button } from '../base';
 import { ProductCarousel } from './ProductCarousel';
+import { LoungewearSkeleton } from './LoungewearSkeleton';
 import { useLoungewearData, fallbackPillars, type LoungewearPillar } from '../../hooks';
 import { urlFor } from '../../lib/sanity';
 
 export const LoungewearSection = () => {
-  const { data } = useLoungewearData();
+  const { data, isLoading } = useLoungewearData();
+
+  if (isLoading) {
+    return <LoungewearSkeleton />;
+  }
+
   const headline = data?.headline || 'Loungewear you can be proud of.';
   const buttonText = data?.buttonText || 'Customize Your Outfit';
   const reviewText = data?.reviewText || 'Over 500+ 5 Star Reviews Online';
   const pillars: LoungewearPillar[] = data?.pillars?.length ? data.pillars : fallbackPillars;
 
   return (
-    <section className="w-full bg-white pt-2 sm:pt-4 lg:pt-6 pb-12 lg:pb-20">
+    <section id="customize" className="w-full bg-white pt-2 sm:pt-4 lg:pt-6 pb-12 lg:pb-20 scroll-mt-6">
       <div className="max-w-[1464px] mx-auto px-4 md:px-8 lg:px-[102px]">
         <div className="grid grid-cols-1 lg:grid-cols-[560px_1fr] lg:gap-16 items-start">
           

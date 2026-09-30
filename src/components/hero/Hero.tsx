@@ -4,9 +4,14 @@ import { urlFor } from '../../lib/sanity';
 import { HeroCardFan } from './HeroCardFan';
 import { HeroReviewCard } from './HeroReviewCard';
 import { AsSeenInCarousel } from './AsSeenInCarousel';
+import { HeroSkeleton } from './HeroSkeleton';
 
 export const Hero = () => {
   const { data, isLoading, error } = useHeroData();
+
+  if (isLoading) {
+    return <HeroSkeleton />;
+  }
 
   const fallbackText = "Don't apologize for being comfortable.";
   const heroText = data?.hero?.headline || fallbackText;
@@ -29,13 +34,9 @@ export const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-[520px_1fr] xl:grid-cols-[576px_725px] justify-between items-start gap-y-8">
           
           <div className="order-1 lg:col-start-1 lg:row-start-1 text-left">
-            {isLoading ? (
-              <div className="animate-pulse h-24 bg-gray-300 rounded w-full mb-8"></div>
-            ) : (
-              <h1 className="font-sofia text-[30px] sm:text-[34px] lg:text-[38px] leading-[36px] sm:leading-[42px] lg:leading-[45px] font-normal text-[#01005B] tracking-[0.04em] mb-8 lg:mb-10 text-center lg:text-left">
-                {heroText}
-              </h1>
-            )}
+            <h1 className="font-sofia text-[30px] sm:text-[34px] lg:text-[38px] leading-[36px] sm:leading-[42px] lg:leading-[45px] font-normal text-[#01005B] tracking-[0.04em] mb-8 lg:mb-10 text-center lg:text-left">
+              {heroText}
+            </h1>
           </div>
 
           <div className="order-2 lg:col-start-2 lg:row-start-1 lg:row-span-4 w-full flex justify-center lg:justify-end mb-8 lg:mb-0">

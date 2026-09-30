@@ -1,10 +1,15 @@
 import { useReviewsData, fallbackReviews } from '../../hooks';
 import { UGCPhotoGrid } from '../best-self';
 import { ReviewsCarousel } from './ReviewsCarousel';
+import { ReviewsSkeleton } from './ReviewsSkeleton';
 import { Button } from '../base';
 
 export const ReviewsSection = () => {
-  const { data } = useReviewsData();
+  const { data, isLoading } = useReviewsData();
+
+  if (isLoading) {
+    return <ReviewsSkeleton />;
+  }
 
   const headline = data?.headline || 'What are our fans saying?';
   const subtitle =

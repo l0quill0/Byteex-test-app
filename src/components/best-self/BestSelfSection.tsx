@@ -1,9 +1,14 @@
 import { useBestSelfData, fallbackParagraphs } from '../../hooks';
 import { BestSelfCollage } from './BestSelfCollage';
+import { BestSelfSkeleton } from './BestSelfSkeleton';
 import { Button } from '../base';
 
 export const BestSelfSection = () => {
-  const { data } = useBestSelfData();
+  const { data, isLoading } = useBestSelfData();
+
+  if (isLoading) {
+    return <BestSelfSkeleton />;
+  }
 
   const headline = data?.headline || 'Be your best self.';
   const paragraphs = data?.paragraphs?.length ? data.paragraphs : fallbackParagraphs;
