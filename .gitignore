@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Gemini / Agent Rules
+# Local tooling & config
 GEMINI.md
 AGENTS.md
 .agents/
