@@ -46,7 +46,7 @@ export const HeroCardFan = ({ images = [] }: HeroCardFanProps) => {
       </div>
 
       {/* Center image card (Figma #2:641 Desktop / #2:892 Mobile) */}
-      <div className="absolute left-[122px] md:left-[233px] top-0 w-[136px] h-[221px] md:w-[260px] md:h-[422px] z-20 border-[2px] md:border-[2.5px] border-white overflow-hidden rounded-none shadow-md">
+      <div className="absolute left-[122px] md:left-[233px] top-0 w-[136px] h-[221px] md:w-[260px] md:h-[422px] z-20 border-[2px] md:border-[2.5px] border-white overflow-hidden rounded-none">
         <img
           src={getImageSrc(safeImages[1], 1)}
           alt="Product 2"

@@ -30,7 +30,7 @@ export const BestSelfCollage = ({
   return (
     <div className="relative w-[345px] h-[363px] lg:w-[531px] lg:h-[625px] shrink-0 select-none mx-auto">
       {/* Top-Left Small Accent Card (Figma #1:1401 Desktop / #2:910 Mobile) */}
-      <div className="absolute left-0 top-0 w-[102px] h-[108px] lg:w-[165px] lg:h-[175px] z-20 border-[4px] border-[#F0EEEF] shadow-md overflow-hidden rounded-none">
+      <div className="absolute left-0 top-0 w-[102px] h-[108px] lg:w-[165px] lg:h-[175px] z-20 border-[4px] border-[#F0EEEF] overflow-hidden rounded-none">
         <img
           src={topSrc}
           alt="Loungewear lifestyle"
@@ -39,7 +39,7 @@ export const BestSelfCollage = ({
       </div>
 
       {/* Main Center Portrait Card (Figma #1:1398 Desktop / #2:908 Mobile) */}
-      <div className="absolute left-[53px] top-[25px] w-[238px] h-[310px] lg:left-[77px] lg:top-[47px] lg:w-[382px] lg:h-[570px] z-10 shadow-xl overflow-hidden rounded-none">
+      <div className="absolute left-[53px] top-[25px] w-[238px] h-[310px] lg:left-[77px] lg:top-[47px] lg:w-[382px] lg:h-[570px] z-10 overflow-hidden rounded-none">
         <img
           src={mainSrc}
           alt="Be your best self founder showcase"
@@ -48,7 +48,7 @@ export const BestSelfCollage = ({
       </div>
 
       {/* Bottom-Right Small Accent Card (Figma #1:1406 Desktop / #2:915 Mobile) */}
-      <div className="absolute left-[235px] top-[251px] w-[110px] h-[112px] lg:left-[395px] lg:top-[489px] lg:w-[129px] lg:h-[175px] z-20 border-[4px] border-[#F0EEEF] shadow-md overflow-hidden rounded-none">
+      <div className="absolute left-[235px] top-[251px] w-[110px] h-[112px] lg:left-[395px] lg:top-[489px] lg:w-[129px] lg:h-[175px] z-20 border-[4px] border-[#F0EEEF] overflow-hidden rounded-none">
         <img
           src={bottomSrc}
           alt="Loungewear comfort"

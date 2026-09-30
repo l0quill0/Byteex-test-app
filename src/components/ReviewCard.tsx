@@ -25,7 +25,7 @@ export const ReviewCard = ({ review, isActive = true, className = '' }: ReviewCa
     <div
       className={`w-full max-w-[299px] lg:max-w-[270px] xl:max-w-[338px] bg-white border border-[#EAEAEA] rounded-[8px] p-5 sm:p-6 flex flex-col justify-start shadow-[0px_3px_10px_1px_rgba(0,0,0,0.08)] transition-all duration-500 shrink-0 ${
         isActive
-          ? 'h-auto min-h-[252px] sm:min-h-[261px] lg:h-[252px] scale-100 z-10 shadow-md ring-1 ring-[#01005B]/10 opacity-100'
+          ? 'h-[261px] scale-100 z-10 shadow-md ring-1 ring-[#01005B]/10 opacity-100'
           : 'h-[194px] opacity-75 shadow-sm'
       } ${className}`}
     >

@@ -124,11 +124,11 @@ export const ReviewsCarousel = ({ reviews }: ReviewsCarouselProps) => {
     >
       {/* Desktop Animated Sliding Viewport: exactly 3 cards visible, top-aligned, chevrons flanking */}
       <div className="hidden lg:flex items-start justify-center gap-3 xl:gap-[73px] w-full max-w-[1400px] mx-auto px-2 sm:px-4">
-        {/* Desktop Left Chevron (Figma #1:1267, mt-[86px] matches y: 3793.63px) */}
+        {/* Desktop Left Chevron (Figma #1:1267, mt-[90px] matches y: 3793.63px) */}
         <button
           onClick={handlePrev}
           aria-label="Previous review"
-          className="shrink-0 mt-[86px] p-2 text-[#676869] hover:text-[#01005B] transition-colors focus:outline-none cursor-pointer"
+          className="shrink-0 mt-[90px] p-2 text-[#676869] hover:text-[#01005B] transition-colors focus:outline-none cursor-pointer"
         >
           <svg width="14" height="24" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M8.5 16.5L1 9L8.5 1.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" strokeLinejoin="round"/>
@@ -136,7 +136,7 @@ export const ReviewsCarousel = ({ reviews }: ReviewsCarouselProps) => {
         </button>
 
         {/* Viewport for 3 cards: max-w-[842px] on lg, max-w-[1062px] on xl */}
-        <div className="overflow-hidden min-h-[265px] pt-1 max-w-[842px] xl:max-w-[1062px]">
+        <div className="overflow-hidden min-h-[285px] pt-2 pb-4 max-w-[842px] xl:max-w-[1062px]">
           <div
             ref={desktopTrackRef}
             onTransitionEnd={handleTransitionEnd}
@@ -171,11 +171,11 @@ export const ReviewsCarousel = ({ reviews }: ReviewsCarouselProps) => {
           </div>
         </div>
 
-        {/* Desktop Right Chevron (Figma #1:1267, mt-[86px] matches y: 3793.63px) */}
+        {/* Desktop Right Chevron (Figma #1:1267, mt-[90px] matches y: 3793.63px) */}
         <button
           onClick={handleNext}
           aria-label="Next review"
-          className="shrink-0 mt-[86px] p-2 text-[#676869] hover:text-[#01005B] transition-colors focus:outline-none cursor-pointer"
+          className="shrink-0 mt-[90px] p-2 text-[#676869] hover:text-[#01005B] transition-colors focus:outline-none cursor-pointer"
         >
           <svg width="14" height="24" viewBox="0 0 10 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.5 16.5L9 9L1.5 1.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="square" strokeLinejoin="round"/>

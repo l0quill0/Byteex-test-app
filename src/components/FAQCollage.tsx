@@ -57,7 +57,7 @@ export const FAQCollage = ({
       />
 
       {/* 4. Top-Right Floating Photo Card (Figma #1:1336 / #2:842) - Sharp corners rounded-none */}
-      <div className="absolute left-[221px] top-[1px] w-[167px] h-[253px] z-10 border-[2.5px] border-white rounded-none shadow-[0px_3px_10px_1px_rgba(0,0,0,0.08)] overflow-hidden">
+      <div className="absolute left-[221px] top-[1px] w-[167px] h-[253px] z-10 border-[2.5px] border-white rounded-none overflow-hidden">
         <img
           src={topSrc}
           alt="Loungewear comfort"
@@ -66,7 +66,7 @@ export const FAQCollage = ({
       </div>
 
       {/* 5. Main Center Portrait Card (Figma #1:1357 / #1:1360) - Sharp corners rounded-none, overlaps other cards */}
-      <div className="absolute left-[80px] top-[129px] w-[227px] h-[355px] z-30 rounded-none shadow-[0px_4px_14px_1px_rgba(0,0,0,0.12)] overflow-hidden">
+      <div className="absolute left-[80px] top-[129px] w-[227px] h-[355px] z-30 rounded-none overflow-hidden">
         <img
           src={mainSrc}
           alt="Loungewear lifestyle"
@@ -75,7 +75,7 @@ export const FAQCollage = ({
       </div>
 
       {/* 6. Bottom-Left Floating Accent Photo Card (Figma #1:1341 / #2:838) - Sharp corners rounded-none, behind center card */}
-      <div className="absolute left-0 top-[440px] w-[216px] h-[159px] z-10 border-[2px] border-white rounded-none shadow-[0px_3px_10px_1px_rgba(0,0,0,0.08)] overflow-hidden">
+      <div className="absolute left-0 top-[440px] w-[216px] h-[159px] z-10 border-[2px] border-white rounded-none overflow-hidden">
         <img
           src={bottomSrc}
           alt="Loungewear fabric"

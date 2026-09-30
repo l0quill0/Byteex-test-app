@@ -6,7 +6,7 @@ export const HeroReviewCard = () => {
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 w-full">
         <div className="flex items-center gap-3">
           <div className="w-[39px] h-[39px] rounded-full overflow-hidden shrink-0 bg-gray-200">
-            <img src="/avatar-jane.png" alt="Amy P." className="w-full h-full object-cover" />
+            <img src="/avatar-amy.png" alt="Amy P." className="w-full h-full object-cover" />
           </div>
           <span className="font-sofia text-[15px] font-medium text-[#676869]">
             Amy P.

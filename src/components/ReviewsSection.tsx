@@ -36,7 +36,7 @@ export const ReviewsSection = () => {
 
       {/* 3. Interactive Reviews Carousel & CTA */}
       <div className="w-full max-w-[1440px] mx-auto px-2 sm:px-4 lg:px-6 flex flex-col items-center">
-        <div className="w-full mb-14 lg:mb-16">
+        <div className="w-full mb-14 lg:mb-12">
           <ReviewsCarousel reviews={reviews} />
         </div>
 
