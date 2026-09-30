@@ -9,6 +9,7 @@ import {
   FAQSection,
   GreenImpactSection,
   FinalCTASection,
+  ErrorBoundary,
 } from './components';
 
 function App() {
@@ -16,16 +17,18 @@ function App() {
     <div className="min-h-screen bg-white w-full overflow-x-hidden">
       <AnnouncementBar />
       <Navbar />
-      <main>
-        <Hero />
-        <LoungewearSection />
-        <BestSelfSection />
-        <ComfortMadeEasySection />
-        <ReviewsSection />
-        <FAQSection />
-        <GreenImpactSection />
-        <FinalCTASection />
-      </main>
+      <ErrorBoundary>
+        <main>
+          <Hero />
+          <LoungewearSection />
+          <BestSelfSection />
+          <ComfortMadeEasySection />
+          <ReviewsSection />
+          <FAQSection />
+          <GreenImpactSection />
+          <FinalCTASection />
+        </main>
+      </ErrorBoundary>
     </div>
   );
 }

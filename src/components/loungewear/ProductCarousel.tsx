@@ -69,6 +69,8 @@ export const ProductCarousel = ({ slides }: ProductCarouselProps) => {
           <img
             src={getSlideSrc(currentSlide)}
             alt={currentSlide.alt}
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover rounded-none transition-opacity duration-300"
           />
 

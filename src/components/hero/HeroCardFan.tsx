@@ -41,6 +41,7 @@ export const HeroCardFan = ({ images = [] }: HeroCardFanProps) => {
         <img
           src={getImageSrc(safeImages[0], 0)}
           alt="Product 1"
+          loading="eager"
           className="object-cover w-full h-full rounded-none"
         />
       </div>
@@ -50,6 +51,8 @@ export const HeroCardFan = ({ images = [] }: HeroCardFanProps) => {
         <img
           src={getImageSrc(safeImages[1], 1)}
           alt="Product 2"
+          loading="eager"
+          fetchPriority="high"
           className="object-cover w-full h-full rounded-none"
         />
       </div>
@@ -59,6 +62,7 @@ export const HeroCardFan = ({ images = [] }: HeroCardFanProps) => {
         <img
           src={getImageSrc(safeImages[2], 2)}
           alt="Product 3"
+          loading="eager"
           className="object-cover w-full h-full rounded-none"
         />
       </div>

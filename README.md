@@ -73,6 +73,8 @@ Open [http://localhost:3333](http://localhost:3333) in your browser.
 | `npx tsc --noEmit` | Runs strict TypeScript type-checking |
 | `npm run studio` | Starts the Sanity Studio CMS on `http://localhost:3333` |
 | `npm run studio:build` | Builds production bundle for Sanity Studio |
+| `npm run studio:import` | Imports the bundled dataset and assets (`production.tar.gz`) into Sanity |
+| `npm run studio:export` | Exports the current live Sanity dataset into `production.tar.gz` |
 
 ---
 
@@ -126,9 +128,26 @@ Open [http://localhost:3333](http://localhost:3333) in your browser.
 
 ## Data Fetching & Dynamic CMS Integration
 
-1. **React Query & GROQ**: Every section consumes a dedicated React Query hook (`use[Section]Data`) querying the Sanity CMS via GROQ queries.
-2. **Defensive Fallback Mechanism**: Every hook provides fallback data matching the exact Figma specifications. This ensures 100% layout and visual fidelity both when connected to the live Sanity dataset and during offline evaluation.
-3. **Optimized Image Resolving**: Sanity image assets are resolved using `@sanity/image-url` with hotspot support, gracefully falling back to local SVGs/PNGs when unseeded.
+1. **Live Cloud Dataset (Zero-Configuration)**:
+   - The application connects out-of-the-box to the live cloud-hosted Sanity project (`wfp1afgy`, dataset `production`).
+   - Because public read access is enabled on the dataset, reviewers running `npm run dev` immediately receive live data and image assets directly from Sanity Cloud without any setup or authentication required.
+
+2. **React Query & GROQ**:
+   - Every section consumes a dedicated React Query hook (`use[Section]Data`) querying Sanity via structured GROQ queries.
+   - Dynamic caching and refetching are handled gracefully with a 5-minute stale window.
+
+3. **Portable Dataset Snapshot & 1-Click Import**:
+   - The repository includes a pre-packaged dataset archive: [`sanity-studio/production.tar.gz`](sanity-studio/production.tar.gz) (all documents + 54 image assets) and [`sanity-studio/data.ndjson`](sanity-studio/data.ndjson).
+   - If an evaluator wishes to connect their own Sanity project and test editing in Sanity Studio:
+     1. Set their project ID in `.env`, `sanity-studio/sanity.config.ts`, and `sanity-studio/sanity.cli.ts`.
+     2. Run `npm run studio:import` to populate their new dataset in seconds.
+     3. Start the studio with `npm run studio` to preview and edit schemas.
+
+4. **Defensive Fallback Mechanism**:
+   - Every hook provides built-in fallback constants matching the exact Figma specifications. This ensures 100% layout and visual fidelity both when connected to the live Sanity dataset and during offline evaluation.
+
+5. **Optimized Image Resolving**:
+   - Sanity image assets are resolved using `@sanity/image-url` with hotspot support, gracefully falling back to local SVGs/PNGs when unseeded.
 
 ---
 

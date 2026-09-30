@@ -61,6 +61,8 @@ export const FAQCollage = ({
         <img
           src={topSrc}
           alt="Loungewear comfort"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover rounded-none"
         />
       </div>
@@ -70,6 +72,8 @@ export const FAQCollage = ({
         <img
           src={mainSrc}
           alt="Loungewear lifestyle"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover rounded-none"
         />
       </div>
@@ -79,6 +83,8 @@ export const FAQCollage = ({
         <img
           src={bottomSrc}
           alt="Loungewear fabric"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-[center_20%] rounded-none scale-[1.04] -translate-x-[4px]"
         />
       </div>

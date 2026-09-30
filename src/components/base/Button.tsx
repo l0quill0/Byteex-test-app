@@ -12,8 +12,20 @@ export const Button = ({
   variant = 'primary',
   showArrow = true,
   className = '',
+  onClick,
   ...props
 }: ButtonProps) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (onClick) {
+      onClick(e);
+      return;
+    }
+    const customizeSection = document.getElementById('customize');
+    if (customizeSection) {
+      customizeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const variantStyles = {
     primary:
       'bg-[#01005B] text-white shadow-[0px_4px_14px_rgba(1,0,91,0.22)] hover:bg-[#15005B] hover:shadow-[0px_6px_20px_rgba(1,0,91,0.32)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]',
@@ -25,6 +37,7 @@ export const Button = ({
 
   return (
     <button
+      onClick={handleClick}
       className={`group font-suisse text-[18px] font-normal rounded-[5px] inline-flex items-center justify-center gap-3 transition-all duration-200 ease-out cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed ${variantStyles[variant]} ${className}`}
       {...props}
     >

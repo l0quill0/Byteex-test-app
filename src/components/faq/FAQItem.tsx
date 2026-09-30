@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 
 interface FAQItemProps {
+  id?: string;
   question: string;
   answer: string;
   isOpen: boolean;
@@ -9,6 +10,7 @@ interface FAQItemProps {
 }
 
 export const FAQItem = ({
+  id = '0',
   question,
   answer,
   isOpen,
@@ -17,6 +19,9 @@ export const FAQItem = ({
 }: FAQItemProps) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState<number | undefined>(undefined);
+
+  const buttonId = `faq-btn-${id}`;
+  const panelId = `faq-panel-${id}`;
 
   useEffect(() => {
     if (contentRef.current) {
@@ -42,8 +47,10 @@ export const FAQItem = ({
     >
       <button
         type="button"
+        id={buttonId}
         onClick={onToggle}
         aria-expanded={isOpen}
+        aria-controls={panelId}
         className="w-full py-5 sm:py-6 flex items-center justify-between text-left gap-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#01005B]/30 group cursor-pointer"
       >
         <span className="font-sofia font-normal text-[17px] sm:text-[18px] leading-[24px] tracking-[0.04em] text-[#01005B] group-hover:opacity-85 transition-opacity">
@@ -69,8 +76,11 @@ export const FAQItem = ({
         </div>
       </button>
 
-      {/* Expandable Answer with measured scrollHeight transition */}
+      {/* Expandable Answer with measured scrollHeight transition & WAI-ARIA region */}
       <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
         style={{
           height: isOpen ? (contentHeight !== undefined ? `${contentHeight}px` : 'auto') : '0px',
         }}

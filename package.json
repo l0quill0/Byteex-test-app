@@ -9,7 +9,9 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "studio": "npm run dev --prefix sanity-studio",
-    "studio:build": "npm run build --prefix sanity-studio"
+    "studio:build": "npm run build --prefix sanity-studio",
+    "studio:export": "npm run export --prefix sanity-studio",
+    "studio:import": "npm run import --prefix sanity-studio"
   },
   "dependencies": {
     "@sanity/client": "^8.8.0",

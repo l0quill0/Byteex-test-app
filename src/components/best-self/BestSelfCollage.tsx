@@ -34,6 +34,8 @@ export const BestSelfCollage = ({
         <img
           src={topSrc}
           alt="Loungewear lifestyle"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
       </div>
@@ -43,6 +45,8 @@ export const BestSelfCollage = ({
         <img
           src={mainSrc}
           alt="Be your best self founder showcase"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
       </div>
@@ -52,6 +56,8 @@ export const BestSelfCollage = ({
         <img
           src={bottomSrc}
           alt="Loungewear comfort"
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
       </div>
