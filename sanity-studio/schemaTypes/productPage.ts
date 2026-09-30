@@ -406,6 +406,73 @@ export const productPage = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'finalCtaSection',
+      title: 'Final CTA Section',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'title',
+          title: 'Headline Title',
+          type: 'string',
+          initialValue: 'Find something you love.',
+        }),
+        defineField({
+          name: 'desktopSubtitle',
+          title: 'Desktop Subtitle',
+          type: 'text',
+          initialValue:
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce lobortis sapien facilisis tincidunt pellentesque. In eget ipsum et felis finibus consequat.',
+        }),
+        defineField({
+          name: 'mobileSubtitle',
+          title: 'Mobile Subtitle',
+          type: 'text',
+          initialValue: 'Click below to browse our collection!',
+        }),
+        defineField({
+          name: 'productCards',
+          title: 'Product Showcase Cards',
+          type: 'array',
+          of: [
+            defineArrayMember({
+              type: 'image',
+              options: {hotspot: true},
+            }),
+          ],
+        }),
+        defineField({
+          name: 'buttonText',
+          title: 'Button Text',
+          type: 'string',
+          initialValue: 'Customize Your Outfit',
+        }),
+        defineField({
+          name: 'shipsInText',
+          title: 'Shipping Speed Text',
+          type: 'string',
+          initialValue: 'Ships in 1-2 Days',
+        }),
+        defineField({
+          name: 'freeShippingText',
+          title: 'Free Shipping Text',
+          type: 'string',
+          initialValue: 'FREE Shipping on Orders over $200',
+        }),
+        defineField({
+          name: 'reviewsText',
+          title: 'Reviews Badge Text',
+          type: 'string',
+          initialValue: 'Over 500+ 5 Star Reviews Online',
+        }),
+        defineField({
+          name: 'ethicallyMadeText',
+          title: 'Ethically Made Text',
+          type: 'string',
+          initialValue: 'Made ethically and responsibly.',
+        }),
+      ],
+    }),
   ],
   preview: {
     prepare() {

@@ -7,6 +7,7 @@ import { ComfortMadeEasySection } from "./components/ComfortMadeEasySection";
 import { ReviewsSection } from "./components/ReviewsSection";
 import { FAQSection } from "./components/FAQSection";
 import { GreenImpactSection } from "./components/GreenImpactSection";
+import { FinalCTASection } from "./components/FinalCTASection";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <ReviewsSection />
         <FAQSection />
         <GreenImpactSection />
+        <FinalCTASection />
       </main>
     </div>
   );
